@@ -22,32 +22,73 @@ import { IndexMarqueComponent } from './Views/index-marque/index-marque.componen
 import { IndexModelComponent } from './Views/index-model/index-model.component';
 import { IndexSocieteComponent } from './Views/index-societe/index-societe.component';
 import { IndexVoitureComponent } from './Views/index-voiture/index-voiture.component';
+import { LoginComponent } from './Views/login/login.component';
+import { ProfileComponent } from './Views/profile/profile.component';
+import { RegisterComponent } from './Views/register/register.component';
 
 const routes: Routes = [
   // Index Root
-  { path: 'conducteur', component: HeaderComponent, children: [{ path: '', component: IndexConducteurComponent }, ] },
-  { path: 'contrat', component: HeaderComponent, children: [{ path: '', component: IndexContratComponent }, ] },
-  { path: 'maison', component: HeaderComponent, children: [{ path: '', component: IndexMaisonComponent }, ] },
-  { path: 'marque', component: HeaderComponent, children: [{ path: '', component: IndexMarqueComponent }, ] },
-  { path: 'model', component: HeaderComponent, children: [{ path: '', component: IndexModelComponent }, ] },
-  { path: 'societe', component: HeaderComponent, children: [{ path: '', component: IndexSocieteComponent }, ] },
-  { path: 'voiture', component: HeaderComponent, children: [{ path: '', component: IndexVoitureComponent }, ] },
+  {
+    path: 'conducteur', component: HeaderComponent,
+    children: [{ path: '', component: IndexConducteurComponent }, ],
+  },
+  {
+    path: 'contrat', component: HeaderComponent,
+    children: [{ path: '', component: IndexContratComponent }, ]
+  },
+  {
+    path: 'maison', component: HeaderComponent,
+    children: [{ path: '', component: IndexMaisonComponent }, ]
+  },
+  {
+    path: 'marque', component: HeaderComponent,
+    children: [{ path: '', component: IndexMarqueComponent }, ]
+  },
+  {
+    path: 'model', component: HeaderComponent,
+    children: [{ path: '', component: IndexModelComponent }, ]
+  },
+  {
+    path: 'societe', component: HeaderComponent,
+    children: [{ path: '', component: IndexSocieteComponent }, ]
+  },
+  {
+    path: 'voiture', component: HeaderComponent,
+    children: [{ path: '', component: IndexVoitureComponent }, ]
+  },
   // Ajouter Root
-  { path: 'conducteur/ajouter', component: HeaderComponent, children: [{ path: '', component: AddConducteurComponent }, ] },
-  { path: 'contrat/ajouter', component: HeaderComponent, children: [{ path: '', component: AddContratComponent }, ] },
-  { path: 'maison/ajouter', component: HeaderComponent, children: [{ path: '', component: AddMaisonComponent }, ] },
-  { path: 'marque/ajouter', component: HeaderComponent, children: [{ path: '', component: AddMarqueComponent }, ] },
+  {
+    path: 'conducteur/ajouter', component: HeaderComponent,
+    children: [{ path: '', component: AddConducteurComponent }, ]
+  },
+  {
+    path: 'contrat/ajouter', component: HeaderComponent,
+    children: [{ path: '', component: AddContratComponent }, ]
+  },
+  {
+    path: 'maison/ajouter', component: HeaderComponent,
+    children: [{ path: '', component: AddMaisonComponent }, ]
+  },
+  {
+    path: 'marque/ajouter', component: HeaderComponent,
+    children: [{ path: '', component: AddMarqueComponent }, ]
+  },
   { path: 'model/ajouter', component: HeaderComponent, children: [{ path: '', component: AddModelComponent }, ] },
   { path: 'societe/ajouter', component: HeaderComponent, children: [{ path: '', component: AddSocieteComponent }, ] },
   { path: 'voiture/ajouter', component: HeaderComponent, children: [{ path: '', component: AddVoitureComponent }, ] },
    // Modifier Root
-  { path: 'conducteur/modifier', component: HeaderComponent, children: [{ path: '', component: EditConducteurComponent }, ] },
-  { path: 'contrat/modifier', component: HeaderComponent, children: [{ path: '', component: EditContratComponent }, ] },
-  { path: 'maison/modifier', component: HeaderComponent, children: [{ path: '', component: EditMaisonComponent }, ] },
-  { path: 'marque/modifier', component: HeaderComponent, children: [{ path: '', component: EditMarqueComponent }, ] },
-  { path: 'model/modifier', component: HeaderComponent, children: [{ path: '', component: EditModelComponent }, ] },
-  { path: 'societe/modifier', component: HeaderComponent, children: [{ path: '', component: EditSocieteComponent }, ] },
-  { path: 'voiture/modifier', component: HeaderComponent, children: [{ path: '', component: EditVoitureComponent }, ] },
+  { path: 'conducteur/modifier/{id}', component: HeaderComponent, children: [{ path: '', component: EditConducteurComponent }, ] },
+  { path: 'contrat/modifier/{id}', component: HeaderComponent, children: [{ path: '', component: EditContratComponent }, ] },
+  { path: 'maison/modifier/{id}', component: HeaderComponent, children: [{ path: '', component: EditMaisonComponent }, ] },
+  { path: 'marque/modifier/{id}', component: HeaderComponent, children: [{ path: '', component: EditMarqueComponent }, ] },
+  { path: 'model/modifier/{id}', component: HeaderComponent, children: [{ path: '', component: EditModelComponent }, ] },
+  { path: 'societe/modifier/{id}', component: HeaderComponent, children: [{ path: '', component: EditSocieteComponent }, ] },
+  { path: 'voiture/modifier/{id}', component: HeaderComponent, children: [{ path: '', component: EditVoitureComponent }, ] },
+  { path: 'profile', component: HeaderComponent, children: [{ path: '', component: ProfileComponent }, ] },
+  { path: '', component: HeaderComponent, children: [{ path: '', component: ProfileComponent }, ] },
+
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 
 ];
 

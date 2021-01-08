@@ -9,6 +9,6 @@ import { CommonModule } from '@angular/common';
 })
 
 export class ModelModule {
-    codeModel: number;
-    nomModel: string;
+    code_model: number;
+    nom_model: string;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ConducteurService } from 'src/app/Service/conducteur.service';
 
 @Component({
@@ -23,27 +23,39 @@ export class AddConducteurComponent implements OnInit {
   mailConducteur: string;
   dateCreationConducteur: Date;
   */
-  constructor(private conducteurService: ConducteurService,
-              private router: Router, private submitform: FormGroup) { }
+  submitform!: FormGroup;
+  constructor(
+              private formBuilder: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router,
+              private conducteurService: ConducteurService) {
+    }
 
   ngOnInit(): void {
-    this.submitform = new FormGroup({
-      prenomNomConducteur: new FormControl('', [Validators.required]),
-      dateNaissance: new FormControl('', [Validators.required]),
-      numPermisConduite: new FormControl('', [Validators.required]),
-      dateLivraisonPermisConduite: new FormControl('', [Validators.required]),
-      dateFinValidite: new FormControl('', [Validators.required]),
-      adresse: new FormControl('', [Validators.required]),
-      tel: new FormControl('', [Validators.required]),
-      numCIN: new FormControl('', [Validators.required]),
-      dateCin: new FormControl('', [Validators.required]),
-      mailConducteur: new FormControl('', [Validators.required])
+    this.submitform = this.formBuilder.group({
+      prenomNomConducteur:  ['', Validators.required],
+      dateNaissance: ['', Validators.required],
+      numPermisConduite: ['', Validators.required],
+      dateLivraisonPermisConduite: ['', Validators.required],
+      dateFinValidite: ['', Validators.required],
+      adresse: ['', Validators.required],
+      tel: ['', Validators.required],
+      numCIN: ['', Validators.required],
+      dateCin: ['', Validators.required],
+      mailConducteur: ['', Validators.required, Validators.email],
+      dateCreationConducteur: ['', Validators.required, Validators.email],
+
     });
   }
 
   onSubmit(): void{
-    this.conducteurService.addConducteur(this.submitform.value);
-   // this.router.navigate(['conducteur']);
+    this.conducteurService.addConducteur(this.submitform.value)
+      .subscribe(() => {
+        this.router.navigate(['conducteur'], { relativeTo: this.route });
+      });
+   
   }
+
+  get f() { return this.submitform.controls; }
 
 }

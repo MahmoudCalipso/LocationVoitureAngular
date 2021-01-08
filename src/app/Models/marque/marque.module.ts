@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Deserializable } from '../deserializable';
 import { MaisonModule as Maison } from '../maison/maison.module';
 
 @NgModule({
@@ -10,9 +9,12 @@ import { MaisonModule as Maison } from '../maison/maison.module';
   ]
 })
 
-export class MarqueModule implements Deserializable{
+export class MarqueModule{
   codeMarque: number;
   nomMarque: string;
   codeMaison: number;
-  maison: Maison[];
+  maisons: Maison[];
+  constructor() {
+    this.maisons = [];
+  }
 }

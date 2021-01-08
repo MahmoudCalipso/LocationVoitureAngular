@@ -38,7 +38,7 @@
               <!-- Card body -->
               <div class="card-body">
 
-              <form class="needs-validation" novalidate  action="" method="post">
+              <form class="needs-validation" [formGroup]="submitform" (ngSubmit)="onSubmit()">
 
                   <div class="form-row">
                     <div class="col-md-6 mb-3">

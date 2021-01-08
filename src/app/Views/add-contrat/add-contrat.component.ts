@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ConducteurModule } from 'src/app/Models/conducteur/conducteur.module';
 import { SocieteModule } from 'src/app/Models/societe/societe.module';
@@ -32,28 +33,33 @@ export class AddContratComponent implements OnInit {
   conducteurs: ConducteurModule[];
   societes: SocieteModule[];
   voitures: VoitureModule[];
+  submitForm!: FormGroup;
   constructor(private contratService: ContratService,
               private conducteurService: ConducteurService,
               private societerService: SocieteService,
               private voitureService: VoitureService,
-              private submitForm: FormGroup) { }
+              private route: ActivatedRoute,
+              private router: Router,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.submitForm = new FormGroup({
-      dateContrat: new FormControl('', [Validators.required]),
-      dateDebutLocation: new FormControl('', [Validators.required]),
-      dateFinLocation: new FormControl('', [Validators.required]),
-      prixUnitaireJour: new FormControl('', [Validators.required]),
-      prixTotal: new FormControl('', [Validators.required]),
-      montantAvance: new FormControl('', [Validators.required]),
-      dateCreationContrat: new FormControl('', [Validators.required]),
-      conducteurs: new FormControl('', [Validators.required]),
-      numSociete: new FormControl('', [Validators.required]),
-      voitures: new FormControl('', [Validators.required])
+    this.submitForm = this.formBuilder.group({
+      dateContrat: ['', Validators.required],
+      dateDebutLocation: ['', Validators.required],
+      dateFinLocation: ['', Validators.required],
+      prixUnitaireJour: ['', Validators.required],
+      prixTotal: ['', Validators.required],
+      montantAvance: ['', Validators.required],
+      dateCreationContrat: ['', Validators.required],
+      conducteurs: ['', Validators.required],
+      numSociete: ['', Validators.required],
+      voitures: ['', Validators.required]
     });
   }
   onSubmit(): void {
-    this.contratService.addContrat(this.submitForm.value);
+    this.contratService.addContrat(this.submitForm.value) .subscribe(() => {
+      this.router.navigate(['conducteur'], { relativeTo: this.route });
+    });
   }
 
 

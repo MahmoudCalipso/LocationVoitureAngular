@@ -39,24 +39,28 @@
               <div class="card-body">
 
 
-              <form class="needs-validation" [formGroup]="submitForm" (ngSubmit)="onSubmit()">
-
-                  <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                      <label class="form-control-label" >Name Model</label>
-                      <input type="text" class="form-control" formControlName="nom_model" name="nom_model" 
-                             placeholder="Nom Model"  required>
-                      <div class="invalid-feedback">
-                        Choisir a Name Model .
-                      </div>
-                    </div>
-                   
-
-                  </div>
-                 
-
-                  <button class="btn btn-primary" type="submit">Ajouter Model</button>
-                </form>
+                <div class="container" *ngIf="currentUser">
+                  <header class="jumbotron">
+                    <h3>
+                      <strong>{{ currentUser.username }}</strong> Profile
+                    </h3>
+                  </header>
+                  <p>
+                    <strong>Token:</strong>
+                    {{ currentUser.accessToken.substring(0, 20) }} ...
+                    {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
+                  </p>
+                  <p>
+                    <strong>Email:</strong>
+                    {{ currentUser.email }}
+                  </p>
+                  <strong>Roles:</strong>
+                  <ul>
+                    <li *ngFor="let role of currentUser.roles">
+                      {{ role }}
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 

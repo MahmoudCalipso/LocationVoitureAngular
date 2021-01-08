@@ -12,21 +12,22 @@ import { MarqueService } from 'src/app/Service/marque.service';
   styleUrls: ['./add-marque.component.css']
 })
 export class AddMarqueComponent implements OnInit {
-  maisons!: any[];
+  submitForm!: FormGroup;
+  maisons: MaisonModule[];
   constructor(private marqueService: MarqueService,
               private maisonService: MaisonService,
               private router: Router,
-              private submitForm: FormGroup) { }
+              private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.submitForm = new FormGroup({
-      nomMarque: new FormControl('', [Validators.required])
+    this.submitForm = this.formBuilder.group({
+      nomMarque: ['', Validators.required]
     });
   }
 
   onSubmit(): void{
     this.marqueService.addMarque(this.submitForm.value);
-    this.router.navigate(['/marque']);
+    this.router.navigate(['marque']);
   }
   resetForm(): void{
     this.submitForm.reset();

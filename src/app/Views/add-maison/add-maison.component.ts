@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MaisonService } from 'src/app/Service/maison.service';
 
@@ -9,18 +9,17 @@ import { MaisonService } from 'src/app/Service/maison.service';
   styleUrls: ['./add-maison.component.css']
 })
 export class AddMaisonComponent implements OnInit {
-  maisonForm: FormGroup;
+  maisonForm!: FormGroup;
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
               private router: Router,
               private maisonService: MaisonService
-  ) {
-    this.maisonForm = this.formBuilder.group({
-      nomMaison: ['']
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
+    this.maisonForm = this.formBuilder.group({
+      nomMaison: ['', Validators.required],
+    });
   }
 
   onSubmit(): any {

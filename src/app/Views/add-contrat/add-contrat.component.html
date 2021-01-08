@@ -46,81 +46,68 @@
                  montantAvance
                 -->
 
-              <form class="needs-validation" novalidate  action="" method="post">
-
+              <form class="needs-validation" [formGroup]="submitForm" (ngSubmit)="onSubmit()">
+                  <div class="form-row">
+                      <div class="col-md-6 mb-3">
+                        <label class="form-control-label"  for="exampleDatepicker">Date Contrat</label>
+                          <input class="form-control datepicker" formControlName="dateContrat"  type="date" >
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label class="form-control-label"  for="exampleDatepicker">Date Debut Locaction</label>
+                        <input class="form-control datepicker" formControlName="dateDebutLocation"  type="date" value="06/20/2018">
+                      </div>
+                  </div>
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
-                      <label class="form-control-label" formControlName="dateContrat" for="exampleDatepicker">Datepicker</label>
-                        <input class="form-control datepicker" placeholder="Select date" type="text" value="06/20/2018">
-                      <div class="invalid-feedback">
-                        Choisir a Name Contrat .
+                      <label class="form-control-label"  for="exampleDatepicker">Date Fin Location</label>
+                      <input class="form-control datepicker" formControlName="dateFinLocation"  type="date" value="06/20/2018">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="input-group-append">
+                      <input class="form-control" formControlName="prixUnitaireJour" placeholder="Prix Jours" type="text">
+                            <span class="input-group-text"><small class="font-weight-bold">USD</small></span>
+                          </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <div class="input-group-append">
+                      <input class="form-control" formControlName="prixTotal" placeholder="Prix Total" type="text">
+                            <span class="input-group-text"><small class="font-weight-bold">USD</small></span>
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <label class="form-control-label" formControlName="dateDebutLocation" for="exampleDatepicker">Datepicker</label>
-                      <input class="form-control datepicker" placeholder="Select date" type="text" value="06/20/2018">
-
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <label class="form-control-label" formControlName="dateFinLocation" for="exampleDatepicker">Datepicker</label>
-                      <input class="form-control datepicker" placeholder="Select date" type="text" value="06/20/2018">
-
-                    </div>
-
-                  </div>
-                  <div class="form-row">
-
-                    <div class="col-md-6 mb-3">
-                      <input class="form-control" formControlName="prixUnitaireJour" placeholder="Payment method" type="text">
-                          <div class="input-group-append">
+                      <div class="input-group-append">
+                      <input class="form-control" formControlName="montantAvance" placeholder="Montant Avance" type="text">
                             <span class="input-group-text"><small class="font-weight-bold">USD</small></span>
-                          </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input class="form-control" formControlName="prixTotal" placeholder="Payment method" type="text">
-                          <div class="input-group-append">
-                            <span class="input-group-text"><small class="font-weight-bold">USD</small></span>
-                          </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <input class="form-control" formControlName="montantAvance" placeholder="Payment method" type="text">
-                          <div class="input-group-append">
-                            <span class="input-group-text"><small class="font-weight-bold">USD</small></span>
-                          </div>
+                      </div>
                     </div>
                   </div>
                   <div class="form-row">
-
                     <div class="col-md-6 mb-3">
+                      hhhh
                       <select class="form-control"  *ngFor="let conducteur of conducteurs"
                               formControlName="codeMaison" data-toggle="select">
-                        <option value="{{conducteur.codeConducteur}}">{{conducteur.prenomNomConducteur}}</option>
-
+                       <!-- <option value="{{conducteur.codeConducteur}}">{{conducteur.prenomNomConducteur}}</option>-->
+                                 <option > aa</option>
                       </select>
                     </div>
-
                     <div class="col-md-6 mb-3">
                       <select class="form-control"  *ngFor="let societe of societes"
                               formControlName="codeMaison" data-toggle="select">
                         <option value="{{societe.numSociete}}">{{societe.nomSociete}}</option>
-
                       </select>
                     </div>
-
                   </div>
-
                   <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <select class="form-control"  *ngFor="let voiture of voitures"
+                            formControlName="codeMaison" data-toggle="select">
+                      <option value="{{voiture.idVoiture}}">{{voiture.matricule}}</option>
 
-                    <div class="col-md-6 mb-3">
-                      <select class="form-control"  *ngFor="let voiture of voitures"
-                              formControlName="codeMaison" data-toggle="select">
-                        <option value="{{voiture.idVoiture}}">{{voiture.matricule}}</option>
-
-                      </select>
-                    </div>
-
-
+                    </select>
                   </div>
+                </div>
 
                   <button class="btn btn-primary" type="submit">Ajouter Contrat</button>
                 </form>

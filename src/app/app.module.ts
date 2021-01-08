@@ -34,6 +34,11 @@ import { EditMaisonComponent } from './Views/edit-maison/edit-maison.component';
 import { EditSocieteComponent } from './Views/edit-societe/edit-societe.component';
 import { AddSocieteComponent } from './Views/add-societe/add-societe.component';
 import { IndexSocieteComponent } from './Views/index-societe/index-societe.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './Views/register/register.component';
+import { LoginComponent } from './Views/login/login.component';
+import { ProfileComponent } from './Views/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -60,11 +65,17 @@ import { IndexSocieteComponent } from './Views/index-societe/index-societe.compo
     EditMaisonComponent,
     EditSocieteComponent,
     AddSocieteComponent,
-    IndexSocieteComponent
+    IndexSocieteComponent,
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
     MaisonModule,
     ConducteurModule,
     ContratModule,
@@ -74,7 +85,7 @@ import { IndexSocieteComponent } from './Views/index-societe/index-societe.compo
     UserModule,
     VoitureModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

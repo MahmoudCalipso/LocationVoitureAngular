@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SocieteService } from 'src/app/Service/societe.service';
 
@@ -20,20 +20,21 @@ export class AddSocieteComponent implements OnInit {
   telRepresentantSociete: string;
   dateCreationSociete: Date;
    */
+  submitForm!: FormGroup;
   constructor(private societerService: SocieteService,
               private route: ActivatedRoute,
               private router: Router,
-              private submitForm: FormGroup) { }
+              private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.submitForm = new FormGroup({
-      nomSociete: new FormControl('', [Validators.required]),
-      personnePhysique: new FormControl('', [Validators.required]),
-      adresseSociete: new FormControl('', [Validators.required]),
-      telSociete: new FormControl('', [Validators.required]),
-      mailSociete: new FormControl('', [Validators.required]),
-      prenomNomRepresentantSociete: new FormControl('', [Validators.required]),
-      telRepresentantSociete: new FormControl('', [Validators.required])
+    this.submitForm = this.formBuilder.group({
+      nomSociete: ['', Validators.required],
+      personnePhysique: ['', Validators.required],
+      adresseSociete: ['', Validators.required],
+      telSociete: ['', Validators.required],
+      mailSociete: ['', Validators.required],
+      prenomNomRepresentantSociete: ['', Validators.required],
+      telRepresentantSociete: ['', Validators.required]
     });
   }
 

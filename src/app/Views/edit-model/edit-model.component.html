@@ -1,1 +1,68 @@
-<p>edit-model works!</p>
+
+<!-- Main content -->
+
+    <!-- Header -->
+    <div class="header bg-primary pb-6"  >
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Modifier Model </h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="">Model</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Modifier</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="col-lg-6 col-5 text-right">
+            <a href="" class="btn btn-sm btn-neutral">Retour</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+        <div class="col">
+          <div class="card-wrapper">
+            <!-- Custom form validation -->
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header">
+                <h3 class="mb-0">Ajouter Model</h3>
+              </div>
+              <!-- Card body -->
+              <div class="card-body">
+
+
+              <form class="needs-validation" [formGroup]="submitForm" (ngSubmit)="onSubmit()">
+
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-control-label" >Name Model</label>
+                      <input type="text" class="form-control" formControlName="nom_model" name="nom_model"
+                             placeholder="Nom Model"  required>
+                      <div class="invalid-feedback">
+                        Choisir a Name Model .
+                      </div>
+                    </div>
+
+
+                  </div>
+
+
+                  <button class="btn btn-primary" type="submit">Modifier Model</button>
+                </form>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
