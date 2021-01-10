@@ -45,8 +45,9 @@ export class EditMaisonComponent implements OnInit {
   onSubmit(): any {
     this.maisonService.editeMaison(this.route.snapshot.params['id'], this.submitForm.value).subscribe(() => {
       console.log('Update Maison');
+      this.router.navigate(['maison']);
     }).add(() => this.loading = false);
-    this.router.navigate(['maison']);
+
   }
 
 }

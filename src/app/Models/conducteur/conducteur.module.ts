@@ -19,6 +19,6 @@ export class ConducteurModule {
   numCIN: string;
   dateCin: Date;
   mailConducteur: string;
-  dateCreationConducteur: Date;
+
 
 }

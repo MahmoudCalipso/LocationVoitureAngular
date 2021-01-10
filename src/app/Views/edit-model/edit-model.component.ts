@@ -37,8 +37,9 @@ export class EditModelComponent implements OnInit {
   onSubmit(): any {
     this.modelService.editeModel(this.id, this.submitForm.value).subscribe(() => {
       console.log('Model Modifier');
+      this.router.navigate(['model']);
     }).add(() => this.loading = false);
-    this.router.navigate(['model']);
+
   }
 
 }

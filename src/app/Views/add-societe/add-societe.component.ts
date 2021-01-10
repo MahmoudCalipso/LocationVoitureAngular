@@ -40,8 +40,10 @@ export class AddSocieteComponent implements OnInit {
   }
 
   onSubmit(): void{
-    this.societerService.addSociete(this.submitForm.value);
-    this.router.navigate(['societe']);
+    this.societerService.addSociete(this.submitForm.value).subscribe(res => {
+      console.log('Societer created successfully!');
+      this.router.navigate(['societe']);
+    });
   }
  /* getDate(){
     return new Date().toISOString().substring(0, 10);

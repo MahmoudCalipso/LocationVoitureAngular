@@ -26,10 +26,11 @@ export class AddMaisonComponent implements OnInit {
     this.maisonService.addMaison(this.maisonForm.value)
     .subscribe((): void => {
       console.log('Maison added successfully!');
+      this.router.navigate(['maison']);
       }, (err) => {
         console.log(err);
     });
-    this.router.navigate(['maison']);
+
   }
 
 }

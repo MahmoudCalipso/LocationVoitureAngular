@@ -29,8 +29,13 @@ export class AddMarqueComponent implements OnInit {
   }
 
   onSubmit(): void{
-    this.marqueService.addMarque(this.submitForm.value);
-    this.router.navigate(['marque']);
+    this.marqueService.addMarque(this.submitForm.value).subscribe((): void => {
+      console.log('Maison added successfully!');
+      this.router.navigate(['marque']);
+      }, (err) => {
+        console.log(err);
+    });
+
   }
   resetForm(): void{
     this.submitForm.reset();

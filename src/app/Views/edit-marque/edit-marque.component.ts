@@ -41,8 +41,9 @@ export class EditMarqueComponent implements OnInit {
   onSubmit(): any {
     this.marqueService.editeMarque(this.id, this.submitForm.value).subscribe(() => {
       console.log('Marque Modifier');
+      this.router.navigate(['marque']);
     }).add(() => this.loading = false);
-    this.router.navigate(['marque']);
+
   }
   getAllMaison(): void {
     this.maisonSerivce.getListMaison()

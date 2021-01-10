@@ -44,8 +44,9 @@ export class EditConducteurComponent implements OnInit {
   onSubmit(): void {
     this.conducteurService.editeConducteur(this.id, this.submitform.value).subscribe(() => {
       console.log('Conducteur Modifier');
+      this.router.navigate(['conducteur']);
     }).add(() => this.loading = false);
-    this.router.navigate(['conducteur']);
+
   }
 
 }

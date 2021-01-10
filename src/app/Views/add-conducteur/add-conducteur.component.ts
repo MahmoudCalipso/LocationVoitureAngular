@@ -51,8 +51,8 @@ export class AddConducteurComponent implements OnInit {
     // tslint:disable-next-line: deprecation
     this.conducteurService.addConducteur(this.submitform.value).subscribe(res => {
       console.log('Conducteur created successfully!');
+      this.router.navigate(['conducteur']);
     });
-    this.router.navigate(['conducteur']);
   }
 
 

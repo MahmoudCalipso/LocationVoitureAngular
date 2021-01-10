@@ -43,7 +43,7 @@
                 <th>prixUnitaireJour</th>
                 <th>prixTotal</th>
                 <th>montantAvance</th>
-                <th>dateCreationContrat</th>
+
                 <th>codeConducteur</th>
                 <th>conducteur</th>
                 <th>numSociete</th>
@@ -61,7 +61,7 @@
                 <th>prixUnitaireJour</th>
                 <th>prixTotal</th>
                 <th>montantAvance</th>
-                <th>dateCreationContrat</th>
+
                 <th>conducteur</th>
                 <th>numSociete</th>
                 <th>voiture</th>
@@ -78,10 +78,10 @@
                 <td>{{ contrat.prixUnitaireJour}}</td>
                 <td>{{ contrat.prixTotal}}</td>
                 <td>{{ contrat.montantAvance}}</td>
-                <td>{{ contrat.dateCreationContrat}}</td>
-                <td>{{ contrat.codeConducteur}}</td>
-                <td>{{ contrat.numSociete}}</td>
-                <td>{{ contrat.idVoiture}}</td>
+
+                <td>{{ contrat.conducteur['prenomNomConducteur']}}</td>
+                <td>{{ contrat.societe['nomSociete']}}</td>
+                <td>{{ contrat.voiture['numcartegrise']}}</td>
 
                  <td class="td-actions text-right">
 
