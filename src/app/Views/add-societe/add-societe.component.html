@@ -39,34 +39,63 @@
               <div class="card-body">
 
 
-              <form class="needs-validation" novalidate  action="" method="post">
+              <form [formGroup]="submitForm" (ngSubmit)="onSubmit()">
 
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
-                      <label class="form-control-label" for="validationCustom01">Name Societe</label>
-                      <input type="text" class="form-control" name="Nom" id="validationCustom01" placeholder="Nom Societe"  required>
-                      <div class="invalid-feedback">
-                        Choisir a Name Societe .
+                      <label class="form-control-label" >Name Societe</label>
+                      <input type="text" class="form-control" formControlName="nomSociete" name="nomSociete" placeholder="Nom Societe"  required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="form-control-label" >Personne Physique</label>
+                      <div class="form-check form-check-line">
+                        <input class="form-check-input" type="radio" formControlName="personnePhysique" id="inlineRadio1" value="true">
+                        <label class="form-check-label" for="inlineRadio1">Oui</label>
+                      </div>
+                      <div class="form-check form-check-line">
+                        <input class="form-check-input" type="radio" formControlName="personnePhysique" id="inlineRadio2" value="false">
+                        <label class="form-check-label" for="inlineRadio2">Non</label>
                       </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                      <label class="form-control-label" for="exampleFormControlSelect1">Select Ville</label>
-                      <select class="form-control" name="Id_Ville" id="exampleFormControlSelect1">
 
-                      </select>
+                  </div>
+                  <div class="form-row">
+
+                     <div class="col-md-6 mb-3">
+                      <label class="form-control-label" >Adresse Societe</label>
+                      <input type="text" class="form-control" formControlName="adresseSociete" name="adresseSociete" placeholder="Adresse Societe"  required>
+                    </div>
+                     <div class="col-md-6 mb-3">
+                      <label class="form-control-label" >Tel Societe</label>
+                      <input type="text" class="form-control" formControlName="telSociete" name="telSociete" placeholder="tel Societe"  required>
                     </div>
 
                   </div>
                   <div class="form-row">
 
-                    <div class="col-md-6 mb-3">
-                      <label class="form-control-label" for="exampleFormControlSelect1">Select Category</label>
-                      <select class="form-control" name="Id_Category" id="exampleFormControlSelect1">
-
-                      </select>
+                     <div class="col-md-6 mb-3">
+                      <label class="form-control-label" >Mail Societe</label>
+                      <input type="email" class="form-control" formControlName="mailSociete" name="mailSociete" placeholder="example@test.com"  required>
+                    </div>
+                     <div class="col-md-6 mb-3">
+                      <label class="form-control-label" >Nom & Prenom Societe</label>
+                      <input type="text" class="form-control" formControlName="prenomNomRepresentantSociete" name="prenomNomRepresentantSociete" placeholder="Nom Societe"  required>
                     </div>
 
                   </div>
+                    <div class="form-row">
+
+                     <div class="col-md-6 mb-3">
+                      <label class="form-control-label" >Tel Representant Societe</label>
+                      <input type="text" class="form-control" formControlName="telRepresentantSociete" name="telRepresentantSociete" placeholder="Nom Societe"  required>
+                    </div>
+                    <!--<div class="col-md-6 mb-3" hidden>
+                      <label class="form-control-label" >Date Creation Societe</label>
+                      <input type="date" class="form-control" formControlName="dateCreationSociete"
+                             name="dateCreationSociete" value="{{this.getDate()}}">
+                    </div> -->
+
+                    </div>
 
                   <button class="btn btn-primary" type="submit">Ajouter Societe</button>
                 </form>

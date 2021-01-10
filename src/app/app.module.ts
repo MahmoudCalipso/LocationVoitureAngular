@@ -39,6 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './Views/register/register.component';
 import { LoginComponent } from './Views/login/login.component';
 import { ProfileComponent } from './Views/profile/profile.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -85,7 +87,7 @@ import { ProfileComponent } from './Views/profile/profile.component';
     UserModule,
     VoitureModule
   ],
-  providers: [HttpClientModule],
+  providers: [authInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

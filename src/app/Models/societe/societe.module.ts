@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class SocieteModule {
+
   numSociete: number;
   nomSociete: string;
   personnePhysique: boolean;
@@ -17,5 +18,4 @@ export class SocieteModule {
   mailSociete: string;
   prenomNomRepresentantSociete: string;
   telRepresentantSociete: string;
-  dateCreationSociete: Date;
  }

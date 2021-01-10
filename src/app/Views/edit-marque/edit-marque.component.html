@@ -7,12 +7,12 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Ajouter Marque </h6>
+              <h6 class="h2 text-white d-inline-block mb-0">Modifier Marque </h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i></a></li>
                   <li class="breadcrumb-item"><a href="">Marque</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Ajouter</li>
+                  <li class="breadcrumb-item active" aria-current="page">Modifier</li>
                 </ol>
               </nav>
             </div>
@@ -33,36 +33,27 @@
             <div class="card">
               <!-- Card header -->
               <div class="card-header">
-                <h3 class="mb-0">Ajouter Marque</h3>
+                <h3 class="mb-0">Modifier Marque</h3>
               </div>
               <!-- Card body -->
               <div class="card-body">
-
-
-              <form class="needs-validation" [formGroup]="submitForm" (ngSubmit)="onSubmit()" novalidate >
+                <form [formGroup]="submitForm" (ngSubmit)="onSubmit()">
 
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label" >Name Marque</label>
                       <input type="text" class="form-control" formControlName="nomMarque" name="nomMarque" placeholder="Nom Marque"  required>
-                      <div class="invalid-feedback">
-                        Choisir a Name Marque .
-                      </div>
                     </div>
                   </div>
                     <div class="form-row">
                     <div class="col-md-6 mb-3">
-                      <select class="form-control"  *ngFor="let maison of maisons"
-                              formControlName="codeMaison" data-toggle="select">
-                        <option value="{{maison.codeMaison}}">{{maison.nomMaison}}</option>
 
+                     <select class="form-control"  data-toggle="select" formControlName="maison">
+                        <option *ngFor="let maison of maisons"
+                        [value]="maison">{{maison.nomMaison}}</option>
                       </select>
                     </div>
                     </div>
-
-
-
-
                   <button class="btn btn-primary" type="submit">Modifier Marque</button>
                 </form>
               </div>

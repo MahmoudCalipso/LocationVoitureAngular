@@ -47,9 +47,8 @@ export class EditVoitureComponent implements OnInit {
   }
 
   onSubmit(): any {
-    this.voitureService.editeVoiture(this.id, this.submitForm.value).subscribe(() => {
-      this.router.navigate(['voiture'], { relativeTo: this.route });
-    }).add(() => this.loading = false);
+    this.voitureService.editeVoiture(this.id, this.submitForm.value);
+    this.router.navigate(['voiture'], { relativeTo: this.route });
   }
 
   getAllMaisons(): void {

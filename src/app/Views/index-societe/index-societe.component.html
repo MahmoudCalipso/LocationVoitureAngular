@@ -37,30 +37,51 @@
               <thead class="thead-light">
                 <tr>
                   <th class="text-center">#</th>
-                  <th>Type</th>
+                  <th>nomSociete</th>
+                  <th>personnePhysique</th>
+                  <th>adresseSociete</th>
+                  <th>telSociete</th>
+                  <th>mailSociete</th>
+                  <th>prenomNomRepresentantSociete</th>
+                  <th>telRepresentantSociete</th>
+
                   <th class="td-actions text-right">Actions</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th class="text-center">#</th>
-                  <th >Type</th>
+                  <th>nomSociete</th>
+                  <th>personnePhysique</th>
+                  <th>adresseSociete</th>
+                  <th>telSociete</th>
+                  <th>mailSociete</th>
+                  <th>prenomNomRepresentantSociete</th>
+                  <th>telRepresentantSociete</th>
+
                   <th class="td-actions text-right">Actions</th>
                 </tr>
               </tfoot>
               <tbody>
 
-                <tr>
-                  <td class="text-center"></td>
-                  <td ></td>
+                <tr *ngFor="let societe of societes; let i = index" [attr.data-index]="i">
+                  <td class="text-center">{{ societe.numSociete}}</td>
+                  <td>{{ societe.nomSociete}}</td>
+                  <td>{{ societe.personnePhysique}}</td>
+                  <td>{{ societe.adresseSociete}}</td>
+                  <td>{{ societe.telSociete}}</td>
+                  <td>{{ societe.mailSociete}}</td>
+                  <td>{{ societe.prenomNomRepresentantSociete}}</td>
+                  <td>{{ societe.telRepresentantSociete}}</td>
+
 
                    <td class="td-actions text-right">
 
-                <a href="" class="table-action" data-toggle="tooltip" data-original-title="Edit Societe">
-                  <i class="fas fa-user-edit"></i>
-                </a>
+                    <a routerLink="societe/modifier/{{societe.numSociete}}" class="table-action" data-toggle="tooltip" data-original-title="Edit Conducteur">
+                      <i class="fas fa-user-edit"></i>
+                    </a>
 
-               <a    href="" class="table-action table-action-delete"  data-toggle="tooltip" data-original-title="Delete Societe">
+                   <a (click)="delete(societe.numSociete)" class="table-action table-action-delete"  data-toggle="tooltip" data-original-title="Delete Conducteur">
 
                  <i class="fas fa-trash"></i>
                </a>

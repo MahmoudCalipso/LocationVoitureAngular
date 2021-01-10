@@ -33,7 +33,7 @@ export class EditConducteurComponent implements OnInit {
       numCIN: ['', Validators.required],
       dateCin: ['', Validators.required],
       mailConducteur: ['', Validators.required, Validators.email],
-      dateCreationConducteur: ['', Validators.required, Validators.email],
+      dateCreationConducteur: ['', Validators.required],
 
     });
     if (!this.isAddMode) {
@@ -43,8 +43,9 @@ export class EditConducteurComponent implements OnInit {
   }
   onSubmit(): void {
     this.conducteurService.editeConducteur(this.id, this.submitform.value).subscribe(() => {
-          this.router.navigate(['conducteur'], { relativeTo: this.route });
-      }).add(() => this.loading = false);
+      console.log('Conducteur Modifier');
+    }).add(() => this.loading = false);
+    this.router.navigate(['conducteur']);
   }
 
 }

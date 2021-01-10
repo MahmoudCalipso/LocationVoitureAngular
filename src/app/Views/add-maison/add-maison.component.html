@@ -39,27 +39,18 @@
                 <div class="card-body">
 
 
-                <form class="needs-validation" [formGroup]="maisonForm" (ngSubmit)="onSubmit()">
+                <form  [formGroup]="maisonForm" (ngSubmit)="onSubmit()">
 
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label class="form-control-label">Name Maison</label>
                         <input type="text" class="form-control" formControlName="nomMaison" name="nomMaison" placeholder="Nom Maison"  required>
-                        <div class="invalid-feedback">
-                          Choisir a Name Maison .
-                        </div>
                       </div>
-
-
                     </div>
-
-
                     <button class="btn btn-primary" type="submit">Ajouter Maison</button>
                   </form>
                 </div>
               </div>
-
-
             </div>
           </div>
         </div>

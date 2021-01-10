@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConducteurModule } from 'src/app/Models/conducteur/conducteur.module';
+import { ContratModule } from 'src/app/Models/contrat/contrat.module';
 import { SocieteModule } from 'src/app/Models/societe/societe.module';
 import { VoitureModule } from 'src/app/Models/voiture/voiture.module';
 import { ConducteurService } from 'src/app/Service/conducteur.service';
@@ -23,6 +24,7 @@ export class EditContratComponent implements OnInit {
   conducteurs: ConducteurModule[];
   societes: SocieteModule[];
   voitures: VoitureModule[];
+  contrat: ContratModule[];
   constructor( private formBuilder: FormBuilder,
                private route: ActivatedRoute,
                private router: Router,
@@ -48,13 +50,19 @@ export class EditContratComponent implements OnInit {
     });
     if (!this.isAddMode) {
       // tslint:disable-next-line: radix
-      this.contratService.getContrats(parseInt(this.id)).subscribe(x => this.submitForm.patchValue(x));
+      this.contratService.getContrats(parseInt(this.id)).subscribe(
+        data => {
+          this.contrat = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
     }
   }
   onSubmit(): void {
-    this.contratService.editeContrat(this.id, this.submitForm.value).subscribe(() => {
-      this.router.navigate(['conducteur'], { relativeTo: this.route });
-    });
+    this.contratService.editeContrat(this.id, this.submitForm.value);
+    this.router.navigate(['contrat']);
   }
 
 

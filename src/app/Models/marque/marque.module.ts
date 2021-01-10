@@ -12,9 +12,6 @@ import { MaisonModule as Maison } from '../maison/maison.module';
 export class MarqueModule{
   codeMarque: number;
   nomMarque: string;
-  codeMaison: number;
-  maisons: Maison[];
-  constructor() {
-    this.maisons = [];
-  }
+  maison: Maison[];
+
 }

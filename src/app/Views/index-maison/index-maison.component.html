@@ -37,30 +37,30 @@
               <thead class="thead-light">
                 <tr>
                   <th class="text-center">#</th>
-                  <th>Type</th>
+                  <th>nomMaison</th>
                   <th class="td-actions text-right">Actions</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th class="text-center">#</th>
-                  <th >Type</th>
+                  <th >nomMaison</th>
                   <th class="td-actions text-right">Actions</th>
                 </tr>
               </tfoot>
               <tbody>
 
-                <tr>
-                  <td class="text-center"></td>
-                  <td ></td>
+                <tr *ngFor="let maison of maisons; let i = index" [attr.data-index]="i">
+                  <td class="text-center">{{ maison.codeMaison}}</td>
+                  <td>{{ maison.nomMaison}}</td>
 
                    <td class="td-actions text-right">
 
-                <a href="" class="table-action" data-toggle="tooltip" data-original-title="Edit Maison">
-                  <i class="fas fa-user-edit"></i>
-                </a>
+                    <a routerLink="maison/modifier/{{maison.codeMaison}}" class="table-action" data-toggle="tooltip" data-original-title="Edit Conducteur">
+                      <i class="fas fa-user-edit"></i>
+                    </a>
 
-               <a    href="" class="table-action table-action-delete"  data-toggle="tooltip" data-original-title="Delete Maison">
+                   <a (click)="delete(maison.codeMaison)" class="table-action table-action-delete"  data-toggle="tooltip" data-original-title="Delete Conducteur">
 
                  <i class="fas fa-trash"></i>
                </a>

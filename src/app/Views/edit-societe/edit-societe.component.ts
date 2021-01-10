@@ -39,9 +39,8 @@ export class EditSocieteComponent implements OnInit {
   }
 
   onSubmit(): any {
-    this.societerService.editeSociete(this.id, this.submitForm.value).subscribe(() => {
-      this.router.navigate(['societer'], { relativeTo: this.route });
-    }).add(() => this.loading = false);
+    this.societerService.editeSociete(this.id, this.submitForm.value);
+    this.router.navigate(['societer']);
   }
 
 }

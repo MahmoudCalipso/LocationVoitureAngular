@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VoitureModule } from 'src/app/Models/voiture/voiture.module';
+import { VoitureService } from 'src/app/Service/voiture.service';
 
 @Component({
   selector: 'app-index-voiture',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index-voiture.component.css']
 })
 export class IndexVoitureComponent implements OnInit {
-
-  constructor() { }
+  voitures: VoitureModule[];
+  constructor(private voitureService: VoitureService) { }
 
   ngOnInit(): void {
+    this.getAllVoiture();
   }
-
+  getAllVoiture(): void {
+    this.voitureService.getListVoiture()
+      .subscribe(
+        data => {
+          this.voitures = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+  delete(id: number) {
+    this.voitureService.deleteVoiture(id);
+    this.getAllVoiture();
+  }
 }

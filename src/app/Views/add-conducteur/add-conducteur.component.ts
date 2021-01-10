@@ -42,20 +42,18 @@ export class AddConducteurComponent implements OnInit {
       tel: ['', Validators.required],
       numCIN: ['', Validators.required],
       dateCin: ['', Validators.required],
-      mailConducteur: ['', Validators.required, Validators.email],
-      dateCreationConducteur: ['', Validators.required, Validators.email],
-
+      mailConducteur: ['', Validators.compose([Validators.required, Validators.email])],
+      dateCreationConducteur: ['', Validators.required]
     });
   }
 
   onSubmit(): void{
-    this.conducteurService.addConducteur(this.submitform.value)
-      .subscribe(() => {
-        this.router.navigate(['conducteur'], { relativeTo: this.route });
-      });
-   
+    // tslint:disable-next-line: deprecation
+    this.conducteurService.addConducteur(this.submitform.value).subscribe(res => {
+      console.log('Conducteur created successfully!');
+    });
+    this.router.navigate(['conducteur']);
   }
 
-  get f() { return this.submitform.controls; }
 
 }

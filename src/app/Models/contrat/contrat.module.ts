@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConducteurModule as Conducteur } from '../conducteur/conducteur.module';
 import { VoitureModule as Voiture} from '../voiture/voiture.module';
+import { SocieteModule  as Societe} from '../societe/societe.module';
 
 @NgModule({
   declarations: [],
@@ -19,11 +20,9 @@ export class ContratModule {
   prixTotal: number;
   montantAvance: number;
   dateCreationContrat: Date;
-  codeConducteur: number[];
-  conducteur: Conducteur[];
-  numSociete: number;
 
-  idVoiture: number[];
+  conducteur: Conducteur[];
+  societe: Societe[];
   voiture: Voiture[];
 
  }

@@ -39,23 +39,16 @@
               <div class="card-body">
 
 
-              <form class="needs-validation" [formGroup]="submitForm" (ngSubmit)="onSubmit()">
+              <form [formGroup]="submitForm" (onSubmit)="onSubmit()">
 
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label" >Name Model</label>
-                      <input type="text" class="form-control" formControlName="nom_model" name="nom_model" 
-                             placeholder="Nom Model"  required>
-                      <div class="invalid-feedback">
-                        Choisir a Name Model .
-                      </div>
+                      <input type="text" class="form-control" formControlName="nomModel" name="nomModel"
+                             placeholder="Nom Model" />
                     </div>
-                   
-
                   </div>
-                 
-
-                  <button class="btn btn-primary" type="submit">Ajouter Model</button>
+                  <input class="btn btn-primary" type="submit" name="Ajouter Model"/>
                 </form>
               </div>
             </div>

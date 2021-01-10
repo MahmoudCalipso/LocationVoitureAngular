@@ -39,30 +39,23 @@
               <div class="card-body">
 
 
-              <form class="needs-validation" [formGroup]="submitForm" (ngSubmit)="onSubmit()" novalidate >
+              <form [formGroup]="submitForm" (ngSubmit)="onSubmit()">
 
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label" >Name Marque</label>
                       <input type="text" class="form-control" formControlName="nomMarque" name="nomMarque" placeholder="Nom Marque"  required>
-                      <div class="invalid-feedback">
-                        Choisir a Name Marque .
-                      </div>
                     </div>
                   </div>
                     <div class="form-row">
                     <div class="col-md-6 mb-3">
-                      <select class="form-control"  *ngFor="let maison of maisons"
-                              formControlName="codeMaison" data-toggle="select">
-                        <option value="{{maison.codeMaison}}">{{maison.nomMaison}}</option>
 
+                     <select class="form-control"  data-toggle="select" formControlName="maison">
+                        <option *ngFor="let maison of maisons"
+                        [value]="maison">{{maison.nomMaison}}</option>
                       </select>
                     </div>
                     </div>
-
-
-
-
                   <button class="btn btn-primary" type="submit">Ajouter Marque</button>
                 </form>
               </div>

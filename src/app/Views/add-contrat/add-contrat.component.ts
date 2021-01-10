@@ -57,9 +57,8 @@ export class AddContratComponent implements OnInit {
     });
   }
   onSubmit(): void {
-    this.contratService.addContrat(this.submitForm.value) .subscribe(() => {
-      this.router.navigate(['conducteur'], { relativeTo: this.route });
-    });
+    this.contratService.addContrat(this.submitForm.value);
+    this.router.navigate(['contrat']);
   }
 
 

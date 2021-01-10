@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MaisonModule } from 'src/app/Models/maison/maison.module';
+import { MaisonService } from 'src/app/Service/maison.service';
+
 
 @Component({
   selector: 'app-index-maison',
@@ -6,10 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index-maison.component.css']
 })
 export class IndexMaisonComponent implements OnInit {
-
-  constructor() { }
+  maisons: MaisonModule[];
+  constructor(private maisonService: MaisonService) { }
 
   ngOnInit(): void {
+    this.getAllMaison();
   }
-
+  getAllMaison(): void {
+    this.maisonService.getListMaison()
+      .subscribe(
+        data => {
+          this.maisons = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+  delete(id: number) {
+    this.maisonService.deleteMaison(id);
+    this.getAllMaison();
+   }
 }

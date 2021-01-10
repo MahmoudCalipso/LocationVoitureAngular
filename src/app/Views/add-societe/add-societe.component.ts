@@ -36,11 +36,17 @@ export class AddSocieteComponent implements OnInit {
       prenomNomRepresentantSociete: ['', Validators.required],
       telRepresentantSociete: ['', Validators.required]
     });
+
   }
 
   onSubmit(): void{
     this.societerService.addSociete(this.submitForm.value);
-    this.router.navigate(['societer']);
+    this.router.navigate(['societe']);
   }
+ /* getDate(){
+    return new Date().toISOString().substring(0, 10);
+  }
+  */
+
 
 }

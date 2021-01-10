@@ -30,7 +30,7 @@ export class EditMarqueComponent implements OnInit {
     this.isAddMode = !this.id;
     this.submitForm = this.formBuilder.group({
       nomMarque: ['', Validators.required],
-      codeMaison: ['', Validators.required]
+      maison: ['', Validators.required]
     });
     if (!this.isAddMode) {
       // tslint:disable-next-line: radix
@@ -40,8 +40,9 @@ export class EditMarqueComponent implements OnInit {
 
   onSubmit(): any {
     this.marqueService.editeMarque(this.id, this.submitForm.value).subscribe(() => {
-      this.router.navigate(['maison'], { relativeTo: this.route });
-  }).add(() => this.loading = false);
+      console.log('Marque Modifier');
+    }).add(() => this.loading = false);
+    this.router.navigate(['marque']);
   }
   getAllMaison(): void {
     this.maisonSerivce.getListMaison()

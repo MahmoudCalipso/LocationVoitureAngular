@@ -85,25 +85,26 @@
                   </div>
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
-                      hhhh
-                      <select class="form-control"  *ngFor="let conducteur of conducteurs"
-                              formControlName="codeMaison" data-toggle="select">
-                       <!-- <option value="{{conducteur.codeConducteur}}">{{conducteur.prenomNomConducteur}}</option>-->
-                                 <option > aa</option>
+
+                      <select class="form-control" formControlName="conducteur" data-toggle="select">
+                       <option *ngFor="let conducteur of conducteurs"
+                       [value]="conducteur">{{conducteur.prenomNomConducteur}}</option>-->
+
                       </select>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <select class="form-control"  *ngFor="let societe of societes"
-                              formControlName="codeMaison" data-toggle="select">
-                        <option value="{{societe.numSociete}}">{{societe.nomSociete}}</option>
+                      <select class="form-control" formControlName="societe" data-toggle="select">
+                        <option  *ngFor="let societe of societes"
+                        [value]="societe">{{societe.nomSociete}}</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-row">
                   <div class="col-md-6 mb-3">
-                    <select class="form-control"  *ngFor="let voiture of voitures"
+                    <select class="form-control"
                             formControlName="codeMaison" data-toggle="select">
-                      <option value="{{voiture.idVoiture}}">{{voiture.matricule}}</option>
+                      <option *ngFor="let voiture of voitures"
+                       [value]="voiture">{{voiture.matricule}}</option>
 
                     </select>
                   </div>

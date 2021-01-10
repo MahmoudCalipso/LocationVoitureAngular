@@ -14,6 +14,7 @@ import { MarqueService } from 'src/app/Service/marque.service';
 export class AddMarqueComponent implements OnInit {
   submitForm!: FormGroup;
   maisons: MaisonModule[];
+
   constructor(private marqueService: MarqueService,
               private maisonService: MaisonService,
               private router: Router,
@@ -21,8 +22,10 @@ export class AddMarqueComponent implements OnInit {
 
   ngOnInit(): void {
     this.submitForm = this.formBuilder.group({
-      nomMarque: ['', Validators.required]
+      nomMarque: ['', Validators.required],
+      maison: ['', Validators.required]
     });
+    this.getAllMaison();
   }
 
   onSubmit(): void{
@@ -35,15 +38,14 @@ export class AddMarqueComponent implements OnInit {
 
   getAllMaison(): void {
     this.maisonService.getListMaison()
-    .subscribe(
-      maisons => {
-        this.maisons = maisons;
-      },
-      error => {
-        console.log(error);
-      });
+    .subscribe((data: any[])=>{
+      this.maisons = data;
+    });
   }
-  get nomMarque(): any{
+  /*get nomMarque(): any{
     return this.submitForm.get('nomMarque');
   }
+  get codeMaison():any{
+    return this.submitForm.get('codeMaison');
+  }*/
 }
