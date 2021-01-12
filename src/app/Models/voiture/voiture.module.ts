@@ -16,7 +16,7 @@ export class VoitureModule {
   numcartegrise: number;
   kilometrage: number;
   matricule: string;
-  model: Model [];
   marque: Marque[];
+  model: Model [];
   maison: Maison[];
 }

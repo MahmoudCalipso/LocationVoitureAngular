@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SocieteModule } from 'src/app/Models/societe/societe.module';
 import { SocieteService } from 'src/app/Service/societe.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class EditSocieteComponent implements OnInit {
   isAddMode!: boolean;
   loading = false;
   submitted = false;
+  societer: SocieteModule[];
   constructor(private societerService: SocieteService,
               private route: ActivatedRoute,
               private router: Router,
@@ -34,13 +36,20 @@ export class EditSocieteComponent implements OnInit {
     });
     if (!this.isAddMode) {
       // tslint:disable-next-line: radix
-      this.societerService.getSocietes(parseInt(this.id)).subscribe(x => this.submitForm.patchValue(x));
+      this.societerService.getSocietes(parseInt(this.id)).subscribe(
+        data => {
+          this.societer = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
     }
   }
 
   onSubmit(): any {
     this.societerService.editeSociete(this.id, this.submitForm.value).subscribe(() => {
-      console.log('Conducteur Modifier');
+      console.log('Societer Modifier');
       this.router.navigate(['societer']);
     }).add(() => this.loading = false);
   }

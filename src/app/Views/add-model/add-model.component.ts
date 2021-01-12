@@ -22,8 +22,8 @@ export class AddModelComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.modeleService.addModel(this.submitForm.value).subscribe((): void => {
-      console.log('Maison added successfully!');
+    this.modeleService.addModel(this.submitForm.value).subscribe(res => {
+      console.log('Model added successfully!');
       this.router.navigate(['model']);
       }, (err) => {
         console.log(err);

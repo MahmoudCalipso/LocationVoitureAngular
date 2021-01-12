@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ContratModule } from 'src/app/Models/contrat/contrat.module';
 import { ContratService } from 'src/app/Service/contrat.service';
 
@@ -9,7 +10,7 @@ import { ContratService } from 'src/app/Service/contrat.service';
 })
 export class IndexContratComponent implements OnInit {
   contrats: ContratModule[];
-  constructor(private contratService: ContratService) { }
+  constructor(private contratService: ContratService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllContrat();
@@ -25,8 +26,15 @@ export class IndexContratComponent implements OnInit {
           console.log(error);
         });
   }
-  delete(id: number) {
-    this.contratService.deleteContrat(id);
-    this.getAllContrat();
-   }
+
+  delete(id: number): void{
+    this.contratService.deleteContrat(id).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['contrat']);
+      },
+      error => {
+        console.log(error);
+      });
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SocieteModule } from 'src/app/Models/societe/societe.module';
 import { SocieteService } from 'src/app/Service/societe.service';
 
@@ -9,7 +10,7 @@ import { SocieteService } from 'src/app/Service/societe.service';
 })
 export class IndexSocieteComponent implements OnInit {
   societes: SocieteModule[];
-  constructor(private societeService: SocieteService) { }
+  constructor(private societeService: SocieteService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllSociete();
@@ -25,8 +26,14 @@ export class IndexSocieteComponent implements OnInit {
           console.log(error);
         });
   }
-  delete(id: number) {
-    this.societeService.deleteSociete(id);
-    this.getAllSociete();
-   }
+  delete(id: number): void{
+    this.societeService.deleteSociete(id).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['societe']);
+      },
+      error => {
+        console.log(error);
+      });
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModelModule } from 'src/app/Models/model/model.module';
 import { ModelService } from 'src/app/Service/model.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class EditModelComponent implements OnInit {
   isAddMode!: boolean;
   loading = false;
   submitted = false;
+  model: ModelModule[];
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
               private router: Router,
@@ -30,7 +32,14 @@ export class EditModelComponent implements OnInit {
     });
     if (!this.isAddMode) {
       // tslint:disable-next-line: radix
-      this.modelService.getModels(parseInt(this.id)).subscribe(x => this.submitForm.patchValue(x));
+      this.modelService.getModels(parseInt(this.id)).subscribe(
+        data => {
+          this.model = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
     }
   }
 

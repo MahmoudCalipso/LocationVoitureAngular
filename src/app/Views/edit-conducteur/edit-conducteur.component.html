@@ -43,22 +43,24 @@
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label">Nom & Prenom</label>
-                      <input type="text" class="form-control" formControlName="prenomNomConducteur" name="prenomNomConducteur"
-                       placeholder="Nom & prenom Conducteur"  required>
+                      <input type="text" class="form-control" formControlName="prenomNomConducteur"
+                       [(ngModel)]="conducteur['prenomNomConducteur']" name="prenomNomConducteur"  required>
                     </div>
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label">Adresse</label>
-                      <input type="email" class="form-control" formControlName="adresse" name="adresse"
-                       placeholder="E-mail Conducteur"  required>
+                      <input type="text" class="form-control" formControlName="adresse"
+                      [(ngModel)]="conducteur['adresse']" name="adresse" required>
                     </div>
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label">Telephone</label>
-                      <input type="text" class="form-control" formControlName="tel" name="tel"
-                        placeholder="Tel Conducteur"  required>
+                      <input type="text" class="form-control" formControlName="tel"
+                        [(ngModel)]="conducteur['tel']" name="tel"
+                        required>
                     </div>
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label">dateNaissance</label>
-                      <input type="text" class="form-control" formControlName="dateNaissance" name="dateNaissance"
+                      <input type="text" class="form-control" formControlName="dateNaissance"
+                      [(ngModel)]="conducteur['dateNaissance']" name="dateNaissance"
                         placeholder="Date naissance Conducteur"  required>
                     </div>
 
@@ -68,17 +70,20 @@
 
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label">Mail Conducteur</label>
-                      <input type="text" class="form-control" formControlName="mailConducteur" name="mailConducteur"
-                        placeholder="Tel Conducteur"  required>
+                      <input type="text" class="form-control" formControlName="mailConducteur"
+                      [(ngModel)]="conducteur['mailConducteur']"   name="mailConducteur"
+                          required>
                     </div>
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label">Date Cin</label>
-                      <input type="date" class="form-control" formControlName="dateCin" name="dateCin"
+                      <input type="date" class="form-control" formControlName="dateCin"
+                      [(ngModel)]="conducteur['dateCin']"  name="dateCin"
                           required>
                     </div>
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label">Num Cin</label>
-                      <input type="text" class="form-control" formControlName="numCIN" name="numCIN"
+                      <input type="text" class="form-control" formControlName="numCIN"
+                      [(ngModel)]="conducteur['numCIN']"  name="numCIN"
                         placeholder="CIN Conducteur"  required>
                     </div>
 
@@ -87,23 +92,26 @@
 
                 <div class="col-md-6 mb-3">
                   <label class="form-control-label">Num Permis Conduite</label>
-                  <input type="text" class="form-control" formControlName="numPermisConduite" name="numPermisConduite"
+                  <input type="text" class="form-control" formControlName="numPermisConduite"
+                  [(ngModel)]="conducteur['numPermisConduite']" name="numPermisConduite"
                      required>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-control-label">Date Livraison Permis Conduite</label>
-                  <input type="date" class="form-control" formControlName="dateLivraisonPermisConduite" name="dateLivraisonPermisConduite"
+                  <input type="date" class="form-control" formControlName="dateLivraisonPermisConduite"
+                  [(ngModel)]="conducteur['dateLivraisonPermisConduite']"  name="dateLivraisonPermisConduite"
                       required>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-control-label"> Date Fin Validite</label>
-                  <input type="date" class="form-control" formControlName="dateFinValidite" name="dateFinValidite"
+                  <input type="date" class="form-control" formControlName="dateFinValidite"
+                  [(ngModel)]="conducteur['dateLivraisonPermisConduite']" name="dateFinValidite"
                     required>
                 </div>
 
               </div>
 
-                  <button class="btn btn-primary" type="submit">Ajouter Conducteur</button>
+                  <button class="btn btn-primary" type="submit">Modifier Conducteur</button>
                 </form>
               </div>
             </div>

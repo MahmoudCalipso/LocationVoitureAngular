@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MarqueModule } from 'src/app/Models/marque/marque.module';
 import { MarqueService } from 'src/app/Service/marque.service';
 
@@ -9,7 +10,7 @@ import { MarqueService } from 'src/app/Service/marque.service';
 })
 export class IndexMarqueComponent implements OnInit {
   marques: MarqueModule[];
-  constructor(private marqueService: MarqueService) { }
+  constructor(private marqueService: MarqueService , private router: Router) { }
 
   ngOnInit(): void {
     this.getAllMarque();
@@ -25,8 +26,15 @@ export class IndexMarqueComponent implements OnInit {
           console.log(error);
         });
   }
-  delete(id: number) {
-    this.marqueService.deleteMarque(id);
-    this.getAllMarque();
-   }
+
+  delete(id: number): void{
+    this.marqueService.deleteMarque(id).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['marque']);
+      },
+      error => {
+        console.log(error);
+      });
+  }
 }

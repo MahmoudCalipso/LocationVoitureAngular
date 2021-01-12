@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { VoitureModule } from 'src/app/Models/voiture/voiture.module';
 import { MaisonService } from 'src/app/Service/maison.service';
 import { MarqueService } from 'src/app/Service/marque.service';
 import { ModelService } from 'src/app/Service/model.service';
@@ -16,6 +17,8 @@ export class EditVoitureComponent implements OnInit {
   maisons!: any[];
   marques!: any[];
   models!: any[];
+
+  voiture: VoitureModule[];
   submitForm!: FormGroup;
   id!: string;
   isAddMode!: boolean;
@@ -36,14 +39,24 @@ export class EditVoitureComponent implements OnInit {
       numcartegrise : ['', Validators.required],
       kilometrage : ['', Validators.required],
       matricule : ['', Validators.required],
-      codeModel : ['', Validators.required],
-      codeMarque : ['', Validators.required],
-      codeMaison : ['', Validators.required],
+      model: ['', Validators.required],
+      marque: ['', Validators.required],
+      maison: ['', Validators.required],
     });
     if (!this.isAddMode) {
       // tslint:disable-next-line: radix
-      this.voitureService.getVoitures(parseInt(this.id)).subscribe(x => this.submitForm.patchValue(x));
+      this.voitureService.getVoitures(parseInt(this.id)).subscribe(
+        data => {
+          this.voiture = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
     }
+    this.getAllMaisons();
+    this.getAllMarques();
+    this.getAllModels();
   }
 
   onSubmit(): any {

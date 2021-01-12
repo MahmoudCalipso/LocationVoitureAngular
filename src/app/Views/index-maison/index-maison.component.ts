@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MaisonModule } from 'src/app/Models/maison/maison.module';
 import { MaisonService } from 'src/app/Service/maison.service';
 
@@ -10,7 +11,8 @@ import { MaisonService } from 'src/app/Service/maison.service';
 })
 export class IndexMaisonComponent implements OnInit {
   maisons: MaisonModule[];
-  constructor(private maisonService: MaisonService) { }
+  constructor(private maisonService: MaisonService,
+              private router: Router ) { }
 
   ngOnInit(): void {
     this.getAllMaison();
@@ -26,8 +28,14 @@ export class IndexMaisonComponent implements OnInit {
           console.log(error);
         });
   }
-  delete(id: number) {
-    this.maisonService.deleteMaison(id);
-    this.getAllMaison();
-   }
+  delete(id: number): void{
+    this.maisonService.deleteMaison(id).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['maison']);
+      },
+      error => {
+        console.log(error);
+      });
+  }
 }

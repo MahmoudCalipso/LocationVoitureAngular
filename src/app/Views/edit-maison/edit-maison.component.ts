@@ -12,7 +12,7 @@ import { MaisonService } from 'src/app/Service/maison.service';
 export class EditMaisonComponent implements OnInit {
 
   submitForm!: FormGroup;
-  id!: string;
+  id!: number;
   isAddMode!: boolean;
   loading = false;
   submitted = false;
@@ -27,7 +27,7 @@ export class EditMaisonComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.isAddMode = !this.id;
     this.submitForm = this.formBuilder.group({
-      nomMaison: ['', Validators.required],
+      nomMaison: ['', Validators.required]
     });
     if (!this.isAddMode) {
       // tslint:disable-next-line: radix
@@ -42,7 +42,7 @@ export class EditMaisonComponent implements OnInit {
     }
   }
 
-  onSubmit(): any {
+   onSubmit(): any {
     this.maisonService.editeMaison(this.route.snapshot.params['id'], this.submitForm.value).subscribe(() => {
       console.log('Update Maison');
       this.router.navigate(['maison']);

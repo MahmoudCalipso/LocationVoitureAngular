@@ -17,7 +17,7 @@ import { VoitureService } from 'src/app/Service/voiture.service';
 })
 export class EditContratComponent implements OnInit {
   submitForm!: FormGroup;
-  id!: string;
+  id!: number;
   isAddMode!: boolean;
   loading = false;
   submitted = false;
@@ -50,7 +50,7 @@ export class EditContratComponent implements OnInit {
     });
     if (!this.isAddMode) {
       // tslint:disable-next-line: radix
-      this.contratService.getContrats(parseInt(this.id)).subscribe(
+      this.contratService.getContrats(this.id).subscribe(
         data => {
           this.contrat = data;
           console.log(data);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConducteurModule } from 'src/app/Models/conducteur/conducteur.module';
 import { ConducteurService } from 'src/app/Service/conducteur.service';
 
@@ -9,7 +10,8 @@ import { ConducteurService } from 'src/app/Service/conducteur.service';
 })
 export class IndexConducteurComponent implements OnInit {
   conducteurs: ConducteurModule[];
-  constructor(private conducteurService: ConducteurService) { }
+  constructor(private conducteurService: ConducteurService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getAllConducteur();
@@ -26,9 +28,15 @@ export class IndexConducteurComponent implements OnInit {
         });
   }
 
-  delete(id: number) {
-    this.conducteurService.deleteConducteur(id);
-    this.getAllConducteur();
+  delete(id: number): void{
+    this.conducteurService.deleteConducteur(id).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['conducteur']);
+      },
+      error => {
+        console.log(error);
+      });
   }
 
 }

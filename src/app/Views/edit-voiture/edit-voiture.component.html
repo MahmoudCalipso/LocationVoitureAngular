@@ -37,12 +37,13 @@
               </div>
               <!-- Card body -->
               <div class="card-body">
-                <form [formGroup]="submitForm" (ngSubmit)="onSubmit()">
+              <form [formGroup]="submitForm" (ngSubmit)="onSubmit()">
 
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label" >Num° Carte de grise</label>
-                      <input type="text" class="form-control" formControlName="numcartegrise" name="numcartegrise" placeholder="Num Carte grise"  required>
+                      <input type="text" class="form-control" formControlName="numcartegrise"
+                      [(ngModel)]="voiture['numcartegrise']"  name="numcartegrise" placeholder="Num Carte grise"  required>
 
                     </div>
                   </div>
@@ -50,7 +51,8 @@
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label" > Tot Kilometrage  </label>
-                      <input type="text" class="form-control" formControlName="kilometrage" name="kilometrage" placeholder="Num Carte grise"  required>
+                      <input type="text" class="form-control" formControlName="kilometrage"
+                      [(ngModel)]="voiture['kilometrage']"  name="kilometrage" placeholder="Num Carte grise"  required>
                       <div class="invalid-feedback">
                         Choisir a Name Voiture .
                       </div>
@@ -59,7 +61,8 @@
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label" > Matricule  </label>
-                      <input type="text" class="form-control" formControlName="matricule" name="matricule" placeholder="Num Carte grise"  required>
+                      <input type="text" class="form-control" formControlName="matricule"
+                      [(ngModel)]="voiture['matricule']"  name="matricule" placeholder="Num Carte grise"  required>
                       <div class="invalid-feedback">
                         Choisir a Name Voiture .
                       </div>
@@ -69,41 +72,45 @@
               <div class="form-row">
                 <div class="col-md-6 mb-3">
                       <label class="form-control-label" for="exampleDatepicker">Date Circulation</label>
-                      <input class="form-control datepicker" formControlName="datemisecirculation" placeholder="Select date" type="date" value="06/20/2018">
+                      <input class="form-control datepicker" formControlName="datemisecirculation"
+                      [(ngModel)]="voiture['datemisecirculation']" name="datemisecirculation" type="date" value="06/20/2018">
                 </div>
               </div>
 
 
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-control-label">Choix Marque</label>
+                  <select class="form-control"  data-toggle="select" formControlName="marque"
+                  [(ngModel)]="voiture['marque']"  name="marque">
+                    <option *ngFor="let marque of marques"
+                    [value]="marque">{{marque.nomMarque}}</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-control-label">Choix Maison</label>
+                    <select class="form-control"  data-toggle="select" formControlName="maison"
+                    [(ngModel)]="voiture['maison']"  name="maison">
+                      <option *ngFor="let maison of maisons"
+                      [value]="maison">{{maison.nomMaison}}</option>
+                    </select>
+                  </div>
+                  </div>
 
-                  <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                      <label class="form-control-label">Choix Maison</label>
-                      <select class="form-control"  data-toggle="select" formControlName="maison">
-                        <option *ngFor="let maison of maisons"
-                        [value]="maison">{{maison.nomMaison}}</option>
-                      </select>
-                    </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="col-md-6 mb-3">
-                        <label class="form-control-label">Choix Marque</label>
-                        <select class="form-control"  data-toggle="select" formControlName="marque">
-                          <option *ngFor="let marque of marques"
-                          [value]="marque">{{marque.nomMarque}}</option>
-                        </select>
-                      </div>
-                      </div>
                       <div class="form-row">
                         <div class="col-md-6 mb-3">
                           <label class="form-control-label">Choix Model</label>
-                          <select class="form-control"  data-toggle="select" formControlName="model">
+                          <select class="form-control"  data-toggle="select" formControlName="model"
+                          [(ngModel)]="voiture['model']"  name="model">
                             <option *ngFor="let model of models"
                             [value]="model">{{model.nomModel}}</option>
                           </select>
                         </div>
                         </div>
 
-                  <button class="btn btn-primary" type="submit">Ajouter Voiture</button>
+                  <button class="btn btn-primary" type="submit">Modifier Voiture</button>
                 </form>
               </div>
             </div>

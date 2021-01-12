@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { VoitureModule } from 'src/app/Models/voiture/voiture.module';
 import { VoitureService } from 'src/app/Service/voiture.service';
 
@@ -9,7 +10,7 @@ import { VoitureService } from 'src/app/Service/voiture.service';
 })
 export class IndexVoitureComponent implements OnInit {
   voitures: VoitureModule[];
-  constructor(private voitureService: VoitureService) { }
+  constructor(private voitureService: VoitureService , private router: Router) { }
 
   ngOnInit(): void {
     this.getAllVoiture();
@@ -25,8 +26,14 @@ export class IndexVoitureComponent implements OnInit {
           console.log(error);
         });
   }
-  delete(id: number) {
-    this.voitureService.deleteVoiture(id);
-    this.getAllVoiture();
+  delete(id: number): void{
+    this.voitureService.deleteVoiture(id).subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['voiture']);
+      },
+      error => {
+        console.log(error);
+      });
   }
 }

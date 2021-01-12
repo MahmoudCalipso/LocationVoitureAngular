@@ -9,7 +9,7 @@ import { MaisonService } from 'src/app/Service/maison.service';
   styleUrls: ['./add-maison.component.css']
 })
 export class AddMaisonComponent implements OnInit {
-  maisonForm!: FormGroup;
+  submitForm!: FormGroup;
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
               private router: Router,
@@ -17,14 +17,14 @@ export class AddMaisonComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.maisonForm = this.formBuilder.group({
-      nomMaison: ['', Validators.required],
+    this.submitForm = this.formBuilder.group({
+      nomMaison: ['', Validators.required]
     });
   }
 
   onSubmit(): any {
-    this.maisonService.addMaison(this.maisonForm.value)
-    .subscribe((): void => {
+    this.maisonService.addMaison(this.submitForm.value)
+    .subscribe(res => {
       console.log('Maison added successfully!');
       this.router.navigate(['maison']);
       }, (err) => {

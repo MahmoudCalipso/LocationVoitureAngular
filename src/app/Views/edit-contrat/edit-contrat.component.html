@@ -50,21 +50,25 @@
                   <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label class="form-control-label"  for="exampleDatepicker">Date Contrat</label>
-                          <input class="form-control datepicker" formControlName="dateContrat"  type="date" >
+                          <input class="form-control datepicker" formControlName="dateContrat"
+                          [(ngModel)]="contrat['dateContrat']" name="dateContrat" type="date" >
                       </div>
                       <div class="col-md-6 mb-3">
                         <label class="form-control-label"  for="exampleDatepicker">Date Debut Locaction</label>
-                        <input class="form-control datepicker" formControlName="dateDebutLocation"  type="date" value="06/20/2018">
+                        <input class="form-control datepicker" formControlName="dateDebutLocation"
+                        [(ngModel)]="contrat['dateDebutLocation']" name="dateDebutLocation"  type="date" >
                       </div>
                   </div>
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label"  for="exampleDatepicker">Date Fin Location</label>
-                      <input class="form-control datepicker" formControlName="dateFinLocation"  type="date" value="06/20/2018">
+                      <input class="form-control datepicker" formControlName="dateFinLocation"
+                      [(ngModel)]="contrat['dateFinLocation']" name="dateFinLocation" type="date" >
                     </div>
                     <div class="col-md-6 mb-3">
                       <div class="input-group-append">
-                      <input class="form-control" formControlName="prixUnitaireJour" placeholder="Prix Jours" type="text">
+                      <input class="form-control" formControlName="prixUnitaireJour"
+                      [(ngModel)]="contrat['prixUnitaireJour']" name="prixUnitaireJour" type="text">
                             <span class="input-group-text"><small class="font-weight-bold">USD</small></span>
                           </div>
                     </div>
@@ -72,13 +76,15 @@
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <div class="input-group-append">
-                      <input class="form-control" formControlName="prixTotal" placeholder="Prix Total" type="text">
+                      <input class="form-control" formControlName="prixTotal"
+                      [(ngModel)]="contrat['prixTotal']" name="prixTotal" type="text">
                             <span class="input-group-text"><small class="font-weight-bold">USD</small></span>
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
                       <div class="input-group-append">
-                      <input class="form-control" formControlName="montantAvance" placeholder="Montant Avance" type="text">
+                      <input class="form-control" formControlName="montantAvance"
+                      [(ngModel)]="contrat['montantAvance']" name="montantAvance" type="text">
                             <span class="input-group-text"><small class="font-weight-bold">USD</small></span>
                       </div>
                     </div>
@@ -86,14 +92,17 @@
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
 
-                      <select class="form-control" formControlName="conducteur" data-toggle="select">
+                      <select class="form-control" formControlName="conducteurs"
+                              [(ngModel)]="contrat['conducteurs']" name="conducteurs" name="conducteurs" data-toggle="select">
                        <option *ngFor="let conducteur of conducteurs"
                        [value]="conducteur">{{conducteur.prenomNomConducteur}}</option>-->
 
                       </select>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <select class="form-control" formControlName="societe" data-toggle="select">
+                      <select class="form-control" formControlName="societe"
+                              [(ngModel)]="contrat['societe']" name="societe"
+                              name="societe" data-toggle="select">
                         <option  *ngFor="let societe of societes"
                         [value]="societe">{{societe.nomSociete}}</option>
                       </select>
@@ -102,7 +111,9 @@
                   <div class="form-row">
                   <div class="col-md-6 mb-3">
                     <select class="form-control"
-                            formControlName="codeMaison" data-toggle="select">
+                            formControlName="voitures" name="voitures"
+                            [(ngModel)]="contrat['voitures']" name="voitures"
+                            name="voitures"data-toggle="select">
                       <option *ngFor="let voiture of voitures"
                        [value]="voiture">{{voiture.matricule}}</option>
 

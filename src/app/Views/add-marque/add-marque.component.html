@@ -50,9 +50,9 @@
                     <div class="form-row">
                     <div class="col-md-6 mb-3">
 
-                     <select class="form-control"  data-toggle="select" formControlName="maison">
+                     <select class="form-control"  data-toggle="select" formControlName="maison" name="maison">
                         <option *ngFor="let maison of maisons"
-                        [value]="maison">{{maison.nomMaison}}</option>
+                        [ngValue]="maison">{{maison.nomMaison}}</option>
                       </select>
                     </div>
                     </div>

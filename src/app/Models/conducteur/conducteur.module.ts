@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ContratModule } from '../contrat/contrat.module';
 
 @NgModule({
   declarations: [],
@@ -19,6 +20,4 @@ export class ConducteurModule {
   numCIN: string;
   dateCin: Date;
   mailConducteur: string;
-
-
 }

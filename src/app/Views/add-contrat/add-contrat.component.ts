@@ -16,20 +16,6 @@ import { VoitureService } from 'src/app/Service/voiture.service';
   styleUrls: ['./add-contrat.component.css']
 })
 export class AddContratComponent implements OnInit {
-  /*
- numContrat: number;
-  dateContrat: Date;
-  dateDebutLocation: Date;
-  dateFinLocation: Date;
-  prixUnitaireJour: number;
-  prixTotal: number;
-  montantAvance: number;
-  dateCreationContrat: Date;
-  conducteurs: number[];
-  numSociete: number;
-  voitures: number[];
-
-  */
   conducteurs: ConducteurModule[];
   societes: SocieteModule[];
   voitures: VoitureModule[];
@@ -50,11 +36,13 @@ export class AddContratComponent implements OnInit {
       prixUnitaireJour: ['', Validators.required],
       prixTotal: ['', Validators.required],
       montantAvance: ['', Validators.required],
-      dateCreationContrat: ['', Validators.required],
       conducteurs: ['', Validators.required],
-      numSociete: ['', Validators.required],
+      societe: ['', Validators.required],
       voitures: ['', Validators.required]
     });
+    this.getAllConducteur();
+    this.getAllSocieters();
+    this.getAllVoitures();
   }
   onSubmit(): void {
     this.contratService.addContrat(this.submitForm.value).subscribe(res => {
@@ -65,11 +53,11 @@ export class AddContratComponent implements OnInit {
   }
 
 
-  getAllConducteur(): void {
-    this.conducteurService.getListConducteur()
+  async getAllConducteur(): Promise<void> {
+   await  this.conducteurService.getListConducteur()
     .subscribe(
-      conducteurs => {
-        this.conducteurs = conducteurs;
+      data => {
+        this.conducteurs = data;
       },
       error => {
         console.log(error);
@@ -79,8 +67,8 @@ export class AddContratComponent implements OnInit {
   getAllSocieters(): void {
     this.societerService.getListSociete()
     .subscribe(
-      societes => {
-        this.societes = societes;
+      data => {
+        this.societes = data;
       },
       error => {
         console.log(error);
@@ -90,8 +78,8 @@ export class AddContratComponent implements OnInit {
   getAllVoitures(): void {
     this.voitureService.getListVoiture()
     .subscribe(
-      voitures => {
-        this.voitures = voitures;
+      data => {
+        this.voitures = data;
       },
       error => {
         console.log(error);

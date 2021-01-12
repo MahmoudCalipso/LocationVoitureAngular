@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MaisonModule } from 'src/app/Models/maison/maison.module';
+import { MarqueModule } from 'src/app/Models/marque/marque.module';
 import { MaisonService } from 'src/app/Service/maison.service';
 import { MarqueService } from 'src/app/Service/marque.service';
 
@@ -14,7 +16,8 @@ export class EditMarqueComponent implements OnInit {
   submitForm!: FormGroup;
   id!: string;
   isAddMode!: boolean;
-  maisons: any[];
+  maisons: MaisonModule[];
+  marque: MarqueModule[];
   loading = false;
   submitted = false;
   constructor(private formBuilder: FormBuilder,
@@ -34,8 +37,16 @@ export class EditMarqueComponent implements OnInit {
     });
     if (!this.isAddMode) {
       // tslint:disable-next-line: radix
-      this.marqueService.getMarques(parseInt(this.id)).subscribe(x => this.submitForm.patchValue(x));
+      this.marqueService.getMarques(parseInt(this.id)).subscribe(
+      data => {
+        this.marque = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
     }
+    this.getAllMaison();
   }
 
   onSubmit(): any {

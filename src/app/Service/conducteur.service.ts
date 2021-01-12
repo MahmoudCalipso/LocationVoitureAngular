@@ -24,7 +24,7 @@ export class ConducteurService {
    return this.http.get<ConducteurModule[]>(API_PATH + 'Conducteur/All', {responseType: 'json'});
   }
   // to get all Conducteur
-  getConducteurs(codeConducteur: number): Observable<ConducteurModule[]>{
+  getConducteur(codeConducteur: number): Observable<ConducteurModule[]>{
    return this.http.get<ConducteurModule[]>(API_PATH + 'Conducteur/' + codeConducteur , {responseType: 'json'});
   }
   // ADD Conducteur
@@ -32,7 +32,7 @@ export class ConducteurService {
      return this.http.post<ConducteurModule>(API_PATH + 'Conducteur/create', Conducteur);
   }
   // Edite Conducteur
-  editeConducteur(codeConducteur: any , Conducteur: any): Observable<ConducteurModule>{
+  editeConducteur(codeConducteur: any , Conducteur: ConducteurModule): Observable<ConducteurModule>{
    return this.http.put<ConducteurModule>(API_PATH + 'Conducteur/findConducteurBy/' + codeConducteur , {responseType: 'json'});
   }
   // delete Conducteur

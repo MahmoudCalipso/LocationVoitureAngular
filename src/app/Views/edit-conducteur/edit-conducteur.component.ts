@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ConducteurModule } from 'src/app/Models/conducteur/conducteur.module';
 import { ConducteurService } from 'src/app/Service/conducteur.service';
 
 @Component({
@@ -10,10 +11,11 @@ import { ConducteurService } from 'src/app/Service/conducteur.service';
 })
 export class EditConducteurComponent implements OnInit {
   submitform!: FormGroup;
-  id!: string;
+  id!: number;
   isAddMode!: boolean;
   loading = false;
   submitted = false;
+  conducteur: ConducteurModule[];
   constructor( private formBuilder: FormBuilder,
                private route: ActivatedRoute,
                private router: Router,
@@ -38,7 +40,7 @@ export class EditConducteurComponent implements OnInit {
     });
     if (!this.isAddMode) {
       // tslint:disable-next-line: radix
-      this.conducteurService.getConducteurs(parseInt(this.id)).subscribe(x => this.submitform.patchValue(x));
+      this.getConducteur(this.id);
     }
   }
   onSubmit(): void {
@@ -48,5 +50,18 @@ export class EditConducteurComponent implements OnInit {
     }).add(() => this.loading = false);
 
   }
+/*
+     this.conducteurService.getConducteurs(parseInt(this.id)).subscribe(x => this.submitform.patchValue(x));
+   */
 
+  getConducteur(id): void {
+    this.conducteurService.getConducteur(id).subscribe(
+      data => {
+        this.conducteur = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
+  }
 }

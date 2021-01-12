@@ -69,34 +69,34 @@
               <div class="form-row">
                 <div class="col-md-6 mb-3">
                       <label class="form-control-label" for="exampleDatepicker">Date Circulation</label>
-                      <input class="form-control datepicker" formControlName="datemisecirculation" placeholder="Select date" type="date" value="06/20/2018">
+                      <input class="form-control datepicker" formControlName="datemisecirculation" name="datemisecirculation" type="date" value="06/20/2018">
                 </div>
               </div>
 
 
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-control-label">Choix Marque</label>
+                  <select class="form-control"  data-toggle="select" formControlName="marque" name="marque">
+                    <option *ngFor="let marque of marques"
+                    [value]="marque">{{marque.nomMarque}}</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <label class="form-control-label">Choix Maison</label>
+                    <select class="form-control"  data-toggle="select" formControlName="maison" name="maison">
+                      <option *ngFor="let maison of maisons"
+                      [value]="maison">{{maison.nomMaison}}</option>
+                    </select>
+                  </div>
+                  </div>
 
-                  <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                      <label class="form-control-label">Choix Maison</label>
-                      <select class="form-control"  data-toggle="select" formControlName="maison">
-                        <option *ngFor="let maison of maisons"
-                        [value]="maison">{{maison.nomMaison}}</option>
-                      </select>
-                    </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="col-md-6 mb-3">
-                        <label class="form-control-label">Choix Marque</label>
-                        <select class="form-control"  data-toggle="select" formControlName="marque">
-                          <option *ngFor="let marque of marques"
-                          [value]="marque">{{marque.nomMarque}}</option>
-                        </select>
-                      </div>
-                      </div>
                       <div class="form-row">
                         <div class="col-md-6 mb-3">
                           <label class="form-control-label">Choix Model</label>
-                          <select class="form-control"  data-toggle="select" formControlName="model">
+                          <select class="form-control"  data-toggle="select" formControlName="model" name="model">
                             <option *ngFor="let model of models"
                             [value]="model">{{model.nomModel}}</option>
                           </select>
