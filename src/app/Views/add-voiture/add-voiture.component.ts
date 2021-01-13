@@ -43,7 +43,7 @@ export class AddVoitureComponent implements OnInit {
 
   onSubmit(): void {
     this.voitureService.addVoiture(this.submitForm.value).subscribe(res => {
-      console.log('Conducteur created successfully!');
+      console.log('Voiture created successfully!');
       this.router.navigate(['voiture']);
     });
   }

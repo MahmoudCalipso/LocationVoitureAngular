@@ -10,8 +10,8 @@
               <h6 class="h2 text-white d-inline-block mb-0">Modifier Voiture </h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="">Voiture</a></li>
+                  <li class="breadcrumb-item"><a href="voiture"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="voiture">Voiture</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Modifier</li>
                 </ol>
               </nav>
@@ -84,7 +84,7 @@
                   <select class="form-control"  data-toggle="select" formControlName="marque"
                   [(ngModel)]="voiture['marque']"  name="marque">
                     <option *ngFor="let marque of marques"
-                    [value]="marque">{{marque.nomMarque}}</option>
+                    [ngValue]="marque">{{marque.nomMarque}}</option>
                   </select>
                 </div>
                 </div>
@@ -94,7 +94,7 @@
                     <select class="form-control"  data-toggle="select" formControlName="maison"
                     [(ngModel)]="voiture['maison']"  name="maison">
                       <option *ngFor="let maison of maisons"
-                      [value]="maison">{{maison.nomMaison}}</option>
+                      [ngValue]="maison">{{maison.nomMaison}}</option>
                     </select>
                   </div>
                   </div>
@@ -105,7 +105,7 @@
                           <select class="form-control"  data-toggle="select" formControlName="model"
                           [(ngModel)]="voiture['model']"  name="model">
                             <option *ngFor="let model of models"
-                            [value]="model">{{model.nomModel}}</option>
+                            [ngValue]="model">{{model.nomModel}}</option>
                           </select>
                         </div>
                         </div>

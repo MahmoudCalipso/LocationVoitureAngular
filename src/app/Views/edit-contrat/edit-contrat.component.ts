@@ -61,8 +61,11 @@ export class EditContratComponent implements OnInit {
     }
   }
   onSubmit(): void {
-    this.contratService.editeContrat(this.id, this.submitForm.value);
-    this.router.navigate(['contrat']);
+    this.contratService.editeContrat(this.id, this.submitForm.value).subscribe(() => {
+      console.log('Contrat Modifier');
+      this.router.navigate(['contrat']);
+    });
+
   }
 
 

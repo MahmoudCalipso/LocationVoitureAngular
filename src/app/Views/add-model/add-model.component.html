@@ -10,8 +10,8 @@
               <h6 class="h2 text-white d-inline-block mb-0">Ajouter Model </h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="">Model</a></li>
+                  <li class="breadcrumb-item"><a href="model"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="model">Model</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Ajouter</li>
                 </ol>
               </nav>
@@ -38,8 +38,7 @@
               <!-- Card body -->
               <div class="card-body">
 
-
-              <form [formGroup]="submitForm" (onSubmit)="onSubmit()">
+                <form [formGroup]="submitForm" (ngSubmit)="onSubmit()">
 
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
@@ -48,10 +47,8 @@
                              placeholder="Nom Model" />
                     </div>
                   </div>
-                  <button class="btn btn-primary" type="submit">Ajouter Model</button>
+                  <input class="btn btn-primary" type="submit" name="Ajouter Model"/>
                 </form>
-              </div>
-            </div>
 
 
           </div>

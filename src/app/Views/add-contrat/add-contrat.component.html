@@ -1,4 +1,3 @@
-
 <!-- Main content -->
 
     <!-- Header -->
@@ -10,14 +9,14 @@
               <h6 class="h2 text-white d-inline-block mb-0">Ajouter Contrat</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="">Contrat</a></li>
+                  <li class="breadcrumb-item"><a href="contrat"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="contrat">Contrat</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Ajouter</li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-            <a href="" class="btn btn-sm btn-neutral">Retour</a>
+            <a href="contrat" class="btn btn-sm btn-neutral">Retour</a>
 
             </div>
           </div>
@@ -88,14 +87,14 @@
 
                       <select class="form-control" formControlName="conducteurs" name="conducteurs" data-toggle="select">
                        <option *ngFor="let conducteur of conducteurs"
-                       [value]="conducteur">{{conducteur.prenomNomConducteur}}</option>-->
+                       [ngValue]="conducteur">{{conducteur.prenomNomConducteur}}</option>-->
 
                       </select>
                     </div>
                     <div class="col-md-6 mb-3">
                       <select class="form-control" formControlName="societe" name="societe" data-toggle="select">
                         <option  *ngFor="let societe of societes"
-                        [value]="societe">{{societe.nomSociete}}</option>
+                        [ngValue]="societe">{{societe.nomSociete}}</option>
                       </select>
                     </div>
                   </div>
@@ -104,7 +103,7 @@
                     <select class="form-control"
                             formControlName="voitures" name="voitures" data-toggle="select">
                       <option *ngFor="let voiture of voitures"
-                       [value]="voiture">{{voiture.matricule}}</option>
+                       [ngValue]="voiture">{{voiture.matricule}}</option>
 
                     </select>
                   </div>

@@ -19,6 +19,8 @@ export class ContratModule {
   prixUnitaireJour: number;
   prixTotal: number;
   montantAvance: number;
+  dateCreationContrat: Date;
+
   conducteurs: Conducteur[];
   societe: Societe[];
   voitures: Voiture[];

@@ -1,4 +1,3 @@
-
 <!-- Main content -->
 
     <!-- Header -->
@@ -10,14 +9,14 @@
               <h6 class="h2 text-white d-inline-block mb-0">Ajouter Voiture </h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="">Voiture</a></li>
+                  <li class="breadcrumb-item"><a href="voiture"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="voiture">Voiture</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Ajouter</li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-            <a href="" class="btn btn-sm btn-neutral">Retour</a>
+            <a href="voiture" class="btn btn-sm btn-neutral">Retour</a>
 
             </div>
           </div>
@@ -69,36 +68,36 @@
               <div class="form-row">
                 <div class="col-md-6 mb-3">
                       <label class="form-control-label" for="exampleDatepicker">Date Circulation</label>
-                      <input class="form-control datepicker" formControlName="datemisecirculation" name="datemisecirculation" type="date" value="06/20/2018">
+                      <input class="form-control datepicker" formControlName="datemisecirculation" placeholder="Select date" type="date" value="06/20/2018">
                 </div>
               </div>
 
 
-              <div class="form-row">
-                <div class="col-md-6 mb-3">
-                  <label class="form-control-label">Choix Marque</label>
-                  <select class="form-control"  data-toggle="select" formControlName="marque" name="marque">
-                    <option *ngFor="let marque of marques"
-                    [value]="marque">{{marque.nomMarque}}</option>
-                  </select>
-                </div>
-                </div>
-                <div class="form-row">
-                  <div class="col-md-6 mb-3">
-                    <label class="form-control-label">Choix Maison</label>
-                    <select class="form-control"  data-toggle="select" formControlName="maison" name="maison">
-                      <option *ngFor="let maison of maisons"
-                      [value]="maison">{{maison.nomMaison}}</option>
-                    </select>
-                  </div>
-                  </div>
 
+                  <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-control-label">Choix Maison</label>
+                      <select class="form-control"  data-toggle="select" name="maison" formControlName="maison">
+                        <option *ngFor="let maison of maisons"
+                        [ngValue]="maison">{{maison.nomMaison}}</option>
+                      </select>
+                    </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-md-6 mb-3">
+                        <label class="form-control-label">Choix Marque</label>
+                        <select class="form-control"  data-toggle="select" name="marque" formControlName="marque">
+                          <option *ngFor="let marque of marques"
+                          [ngValue]="marque">{{marque.nomMarque}}</option>
+                        </select>
+                      </div>
+                      </div>
                       <div class="form-row">
                         <div class="col-md-6 mb-3">
                           <label class="form-control-label">Choix Model</label>
-                          <select class="form-control"  data-toggle="select" formControlName="model" name="model">
+                          <select class="form-control"  data-toggle="select" name="model" formControlName="model">
                             <option *ngFor="let model of models"
-                            [value]="model">{{model.nomModel}}</option>
+                            [ngValue]="model">{{model.nomModel}}</option>
                           </select>
                         </div>
                         </div>

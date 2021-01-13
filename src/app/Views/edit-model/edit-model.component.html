@@ -10,8 +10,8 @@
               <h6 class="h2 text-white d-inline-block mb-0">Modifier Model </h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href=""><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="">Model</a></li>
+                  <li class="breadcrumb-item"><a href="model"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="model">Model</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Modifier</li>
                 </ol>
               </nav>
@@ -39,16 +39,14 @@
               <div class="card-body">
 
 
-              <form class="needs-validation" [formGroup]="submitForm" (ngSubmit)="onSubmit()">
+              <form  [formGroup]="submitForm" (ngSubmit)="onSubmit()">
 
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label class="form-control-label" >Name Model</label>
                       <input type="text" class="form-control" formControlName="nomModel" name="nomModel"
                             [(ngModel)]="model['nomModel']"  required>
-                      <div class="invalid-feedback">
-                        Choisir a Name Model .
-                      </div>
+
                     </div>
 
 
